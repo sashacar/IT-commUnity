@@ -1,0 +1,70 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ChromaShift : MonoBehaviour
+{
+    public int colorIndex;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            colorIndex = 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            colorIndex = 2;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            colorIndex = 3;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            colorIndex = 4;
+        }
+
+        switch (colorIndex)
+        {
+            case 1:
+                Debug.Log("Blue");
+                GetComponent<MeshRenderer>().material.color = Color.blue; //blue>
+                break;
+            case 2:
+                Debug.Log("Green");
+                GetComponent<MeshRenderer>().material.color = Color.green; //green>
+                break;
+            case 3:
+               Debug.Log("Red");
+                GetComponent<MeshRenderer>().material.color = Color.red; //red>
+                break;
+            case 4:
+                Debug.Log("Yellow");
+                GetComponent<MeshRenderer>().material.color = Color.yellow; //yellow>
+                break;
+                default:
+                Debug.Log("Default, no color selected");
+                break;
+        }
+    }
+}
+
+/*
+  C#: оператор Switch
+Разберем, как работает скрипт ChromaShift.
+
+Есть переменная colorIndex, которая хранит текущий выбранный цвет. Изначально она равна 0.
+В методе Update() проверяем, была ли нажата определенная клавиша (B, G, R или Y) с помощью Input.GetKeyDown(KeyCode.X).
+Если нажата клавиша B, colorIndex устанавливается на 1 (синий).
+Если нажата клавиша G, colorIndex устанавливается на 2 (зеленый).
+Если нажата клавиша R, colorIndex устанавливается на 3 (красный).
+Если нажата клавиша Y, colorIndex устанавливается на 4 (желтый).
+Затем используется оператор switch, чтобы на основе значения colorIndex установить цвет материала компонента MeshRenderer.
+Пример:
+
+Если нажата клавиша B, colorIndex становится равным 1, и цвет материала устанавливается на синий.
+Если нажата клавиша G, colorIndex становится равным 2, и цвет материала устанавливается на зеленый.
+Таким образом, скрипт позволяет динамически менять цвет объекта в зависимости от нажатых клавиш.
+*/
